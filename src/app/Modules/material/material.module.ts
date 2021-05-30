@@ -15,6 +15,7 @@ import {ClipboardModule} from "@angular/cdk/clipboard";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatBadgeModule} from "@angular/material/badge";
+import {MatExpansionModule} from '@angular/material/expansion';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -31,7 +32,8 @@ const MaterialComponents = [
   MatCheckboxModule,
   MatGridListModule,
   ClipboardModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatExpansionModule
 ];
 
 @NgModule({
