@@ -23,4 +23,18 @@ export class ProviderService {
     });
     return this.http.get(this.BaseURL + 'Branches/getBranchWithGrades', {headers}).toPromise(); 
   }
+
+  public getBooksWithGradeId(id: any) {
+    const headers = new HttpHeaders({
+      Accept: 'application/json'
+    });
+    return this.http.get(this.BaseURL + 'Grades/getBooksWithGradeId?gradeId=' + id, {headers}).toPromise(); 
+  }
+
+  public getDocumentWithBookId(id: any) {
+    const headers = new HttpHeaders({
+      Accept: 'application/json'
+    });
+    return this.http.get(this.BaseURL + 'Books/getDocumentWithBookId?bookId=' + id, {headers}).toPromise(); 
+  }
 }
