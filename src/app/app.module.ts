@@ -10,12 +10,18 @@ import { HomeComponent } from './Components/home/home.component';
 import { ProviderService } from './Services/provider.service';
 import { BranchdetailComponent } from './Components/branchdetail/branchdetail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { BooksComponent } from './Components/books/books.component';
+import { BooksdetailComponent } from './Components/booksdetail/booksdetail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    BranchdetailComponent
+    BranchdetailComponent,
+    NavbarComponent,
+    BooksComponent,
+    BooksdetailComponent
   ],
   imports: [
     BrowserModule,
