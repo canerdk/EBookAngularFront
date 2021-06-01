@@ -16,6 +16,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
 
 const MaterialComponents = [
   MatButtonModule,
@@ -33,7 +34,8 @@ const MaterialComponents = [
   MatGridListModule,
   ClipboardModule,
   MatBadgeModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatProgressSpinnerModule
 ];
 
 @NgModule({
