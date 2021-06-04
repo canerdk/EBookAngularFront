@@ -13,6 +13,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { BooksComponent } from './Components/books/books.component';
 import { BooksdetailComponent } from './Components/booksdetail/booksdetail.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -29,7 +33,9 @@ import { BooksdetailComponent } from './Components/booksdetail/booksdetail.compo
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    PdfViewerModule,
+    FormsModule
   ],
   providers: [ProviderService],
   bootstrap: [AppComponent]

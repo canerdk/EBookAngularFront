@@ -1,4 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProviderService } from 'src/app/Services/provider.service';
 
 @Component({
   selector: 'app-home',
@@ -6,14 +9,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  
+  books: any;
+  loading = true;
 
-  constructor() { }
+  constructor(private service: ProviderService, private router: Router) { }
 
   ngOnInit(): void {
-   
+   this.getAllBooks();
   }
 
+  getAllBooks() {
+    this.service.getAllBooks().then((data) => {
+      this.books = data;
+      this.loading = false;
+    }).catch((err: HttpErrorResponse) => {
+      console.log(err);
+    });
+  }
+
+  getDocument(id: any) {
+    this.router.navigate(['/booksdetail', id]);
+  }
   
 
 }

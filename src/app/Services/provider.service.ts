@@ -37,4 +37,11 @@ export class ProviderService {
     });
     return this.http.get(this.BaseURL + 'Books/getDocumentWithBookId?bookId=' + id, {headers}).toPromise(); 
   }
+
+  public getAllBooks() {
+    const headers = new HttpHeaders({
+      Accept: 'application/json'
+    });
+    return this.http.get(this.BaseURL + 'Books', {headers}).toPromise(); 
+  }
 }

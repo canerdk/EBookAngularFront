@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProviderService } from 'src/app/Services/provider.service';
@@ -10,6 +11,7 @@ import { ProviderService } from 'src/app/Services/provider.service';
 export class BooksComponent implements OnInit {
   id: any;
   books: any;
+  loading = true;
 
   constructor(private route: ActivatedRoute, private service: ProviderService, private router: Router) { }
 
@@ -23,7 +25,9 @@ export class BooksComponent implements OnInit {
   getBooks(id: any) {
     this.service.getBooksWithGradeId(id).then((data) => {
       this.books = data;
-      console.log(this.books);
+      this.loading = false;
+    }).catch((err: HttpErrorResponse) => {
+      console.log(err);
     })
   }
 

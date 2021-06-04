@@ -1,5 +1,7 @@
 <mat-toolbar *ngIf="toolbar" color="primary" class="mb-5">
-    <img src="./assets/images/artizekalogo.png">
+    <a href="/">
+      <img src="./assets/images/artizekalogo.png">
+    </a>
     <div *ngFor="let b of branches">
       <button mat-button [matMenuTriggerFor]="menu">{{b.name}} <mat-icon>keyboard_arrow_down</mat-icon>
       </button>
