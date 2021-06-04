@@ -34,7 +34,7 @@ export class BooksdetailComponent implements OnInit {
       this.document = data;
       this.loading = false;
       let pdf = 'https://service.artizekaekutuphane.com/wwwroot/documents/' + this.document[0].url;
-    this.trustedDashboardUrl = this.sanitizer.bypassSecurityTrustResourceUrl(pdf);
+      this.trustedDashboardUrl = this.sanitizer.bypassSecurityTrustResourceUrl(pdf);
     }).catch((err: HttpErrorResponse) => {
       console.log(err);
     });

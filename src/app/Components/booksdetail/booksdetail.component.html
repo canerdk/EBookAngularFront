@@ -1,6 +1,9 @@
 <mat-spinner *ngIf="loading" class="center"></mat-spinner>
 
 <div class="container" *ngFor="let d of document">
-  <iframe [src]="trustedDashboardUrl" trusted="yes" application="yes" width="100%">
+  <ngb-alert type="primary" [dismissible]="false">
+    <div class="text-center"><strong>{{d.name}}</strong></div>
+  </ngb-alert>
+  <iframe [src]="trustedDashboardUrl" frameborder="0" width="100%" height="100%">
   </iframe>
 </div>

@@ -1,14 +1,11 @@
 <mat-spinner *ngIf="loading" class="center"></mat-spinner>
 <div class="container">
-  <div class="row">
-    <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-2" *ngFor="let b of books">
-      <div class="card">
-        <img class="card-img" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/vans.png" alt="Vans">
+  <div class="row">    
+    <div class="col-12 col-sm-8 col-md-6 col-lg-3 mb-4" *ngFor="let b of books">
+      <div class="card" (click)="getDocument(b.id)">
+        <img class="card-img" src="https://service.artizekaekutuphane.com/wwwroot/images/{{b.imageUrl}}" alt="{{b.name}}">
         <div class="card-body">
           <h4 class="card-title">{{b.name}}</h4>
-          <div class="buy d-flex justify-content-between align-items-center float-right">
-            <button class="btn btn-danger mt-3"(click)="getDocument(b.id)">PDF Görüntüle</button>
-          </div>
         </div>
       </div>      
     </div>

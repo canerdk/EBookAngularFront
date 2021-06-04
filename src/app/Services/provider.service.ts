@@ -5,42 +5,42 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProviderService {
-  BaseURL = 'http://service.artizekaekutuphane.com/api/';
+  BaseURL = 'https://service.artizekaekutuphane.com/api/';
 
   constructor(private http: HttpClient) { }
 
 
   public getBranches() {
     const headers = new HttpHeaders({
-      Accept: 'application/json'
+      'Accept': 'application/json'
     });
     return this.http.get(this.BaseURL + 'Branches', {headers}).toPromise();
   }
 
   public getBranchesWithGrades() {
     const headers = new HttpHeaders({
-      Accept: 'application/json'
+      'Accept': 'application/json'
     });
     return this.http.get(this.BaseURL + 'Branches/getBranchWithGrades', {headers}).toPromise(); 
   }
 
   public getBooksWithGradeId(id: any) {
     const headers = new HttpHeaders({
-      Accept: 'application/json'
+      'Accept': 'application/json'
     });
     return this.http.get(this.BaseURL + 'Grades/getBooksWithGradeId?gradeId=' + id, {headers}).toPromise(); 
   }
 
   public getDocumentWithBookId(id: any) {
     const headers = new HttpHeaders({
-      Accept: 'application/json'
+      'Accept': 'application/json'
     });
     return this.http.get(this.BaseURL + 'Books/getDocumentWithBookId?bookId=' + id, {headers}).toPromise(); 
   }
 
   public getAllBooks() {
     const headers = new HttpHeaders({
-      Accept: 'application/json'
+      'Accept': 'application/json'
     });
     return this.http.get(this.BaseURL + 'Books', {headers}).toPromise(); 
   }
