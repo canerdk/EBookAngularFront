@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ProviderService } from 'src/app/Services/provider.service';
+
 
 
 @Component({
@@ -13,17 +15,17 @@ export class BooksdetailComponent implements OnInit {
   id: any;
   document: any;
   loading = true;
-  doc = '';
-  pageVariable = 1;
+  trustedDashboardUrl!: SafeUrl;
 
-  constructor(private route: ActivatedRoute, private service: ProviderService) {    
+  constructor(private route: ActivatedRoute, private service: ProviderService, private sanitizer: DomSanitizer) {    
+    this.sanitizer = sanitizer;
    }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((data) => {
       this.id = data.get('id');
       this.getDocument(this.id);
-    })
+    });    
   }
 
 
@@ -31,25 +33,12 @@ export class BooksdetailComponent implements OnInit {
     this.service.getDocumentWithBookId(bookId).then((data) => {
       this.document = data;
       this.loading = false;
-      this.doc = this.document[0].url;
-      console.log(this.document);
+      let pdf = 'https://service.artizekaekutuphane.com/wwwroot/documents/' + this.document[0].url;
+    this.trustedDashboardUrl = this.sanitizer.bypassSecurityTrustResourceUrl(pdf);
     }).catch((err: HttpErrorResponse) => {
       console.log(err);
     });
   }
 
-  leftPage() {
-    if(this.pageVariable != 1) {
-      this.pageVariable -= 1;
-    }
-  }
-
-  rightPage() {
-    this.pageVariable += 1;
-  }
-
-  onChange(event: any) {
-
-  }
 
 }

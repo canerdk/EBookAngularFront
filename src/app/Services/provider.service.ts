@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProviderService {
-  BaseURL = 'https://localhost:44306/api/';
+  BaseURL = 'http://service.artizekaekutuphane.com/api/';
 
   constructor(private http: HttpClient) { }
 

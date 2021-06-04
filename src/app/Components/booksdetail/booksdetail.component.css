@@ -4,11 +4,6 @@
     left: 50%;
   }
 
-  pdf-viewer {
-    display: block;
-}
-
-input {
-  width: 50px;
-  text-align: center;
-}
+  iframe {
+    height: 100vh;
+  }
