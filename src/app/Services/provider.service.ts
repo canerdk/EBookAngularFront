@@ -44,4 +44,11 @@ export class ProviderService {
     });
     return this.http.get(this.BaseURL + 'Books', {headers}).toPromise(); 
   }
+
+  public getPdfImagesWithDocName(docName: string) {
+    const headers = new HttpHeaders({
+      'Accept': 'application/json'
+    });
+    return this.http.get(this.BaseURL + 'Documents/getimages?docName=' + docName, {headers}).toPromise(); 
+  }
 }

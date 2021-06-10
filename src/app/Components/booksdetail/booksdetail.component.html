@@ -1,9 +1,50 @@
 <mat-spinner *ngIf="loading" class="center"></mat-spinner>
+<!-- <mat-spinner *ngIf="!isLoaded" class="center"></mat-spinner> -->
 
-<div class="container" *ngFor="let d of document">
-  <ngb-alert type="primary" [dismissible]="false">
-    <div class="text-center"><strong>{{d.name}}</strong></div>
-  </ngb-alert>
-  <iframe [src]="trustedDashboardUrl" frameborder="0" width="100%" height="100%">
-  </iframe>
+
+
+<!-- <div class="container mt-2">
+  <ngx-extended-pdf-viewer
+  [(src)]="url" 
+[height]="'100%'"
+[textLayer]="true" 
+[useBrowserLocale]="true"
+  [mobileFriendlyZoom]="'100%'"
+  [zoom]="'page-width'"
+  [showPagingButtons]="true"
+  [pageViewMode]="'single'"
+[showHandToolButton]="true">
+</ngx-extended-pdf-viewer>
+</div>
+<div class="container mt-2">
+  <ngb-alert type="warning" [dismissible]="false" class="mt-2">
+    <div class="text-center">PDF yüklenmesi zaman alabilir. Eğer yüklenmediyse <a [href]="url">buradan</a> ulaşabilirsiniz.</div>
+  </ngb-alert> 
+</div> -->
+
+
+
+<!-- eski -->
+<!-- <div *ngIf="isLoaded" style="text-align: center;" class="mb-2">
+  <button (click)="prevPage()" [disabled]="page === 1" mat-icon-button>
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
+  <span>{{ page }} / {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="page === totalPages" mat-icon-button>
+    <mat-icon>arrow_forward_ios</mat-icon>
+  </button>
+</div> -->
+
+<!-- <pdf-viewer
+  [src]="url"
+  [page]="page"
+  [fit-to-page]="true"
+  [autoresize]="true"
+  [render-text]="true"
+  (after-load-complete)="afterLoadComplete($event)"
+  
+></pdf-viewer> -->
+
+<div class="container mt-2 viewer" *ngIf="!loading">
+  <ngx-image-viewer [src]="images" [(index)]="imageIndex" [config]="config"></ngx-image-viewer>
 </div>

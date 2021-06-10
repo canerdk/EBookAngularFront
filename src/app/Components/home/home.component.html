@@ -1,13 +1,19 @@
 <mat-spinner *ngIf="loading" class="center"></mat-spinner>
-<div class="container">
+<div class="container mt-5">
   <div class="row">    
-    <div class="col-12 col-sm-8 col-md-6 col-lg-3 mb-4" *ngFor="let b of books">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-3 mb-4" *ngFor="let b of books | paginate: { itemsPerPage: 8, currentPage: p }">
       <div class="card" (click)="getDocument(b.id)">
         <img class="card-img" src="https://service.artizekaekutuphane.com/wwwroot/images/{{b.imageUrl}}" alt="{{b.name}}">
         <div class="card-body">
           <h4 class="card-title">{{b.name}}</h4>
         </div>
       </div>      
-    </div>
+    </div>    
+  </div>
+  <div class="text-center paginator" *ngIf="!loading">
+    <pagination-controls (pageChange)="p = $event" 
+    previousLabel="Geri"
+    nextLabel="İleri">
+  </pagination-controls>
   </div>
 </div>

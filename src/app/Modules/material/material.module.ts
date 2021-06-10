@@ -17,6 +17,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
+import {MatSidenavModule} from '@angular/material/sidenav'; 
+import {MatDividerModule} from '@angular/material/divider'; 
 
 const MaterialComponents = [
   MatButtonModule,
@@ -35,7 +37,9 @@ const MaterialComponents = [
   ClipboardModule,
   MatBadgeModule,
   MatExpansionModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatSidenavModule,
+  MatDividerModule
 ];
 
 @NgModule({

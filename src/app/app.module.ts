@@ -15,6 +15,11 @@ import { BooksComponent } from './Components/books/books.component';
 import { BooksdetailComponent } from './Components/booksdetail/booksdetail.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { FooterComponent } from './Components/footer/footer.component';
+import { ImageViewerModule } from 'ngx-image-viewer';
 
 
 
@@ -25,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     BranchdetailComponent,
     NavbarComponent,
     BooksComponent,
-    BooksdetailComponent
+    BooksdetailComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,11 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     NgbModule,
     PdfViewerModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule,
+    FlexLayoutModule,
+    NgxExtendedPdfViewerModule,
+    ImageViewerModule.forRoot()
   ],
   providers: [ProviderService],
   bootstrap: [AppComponent]

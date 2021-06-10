@@ -1,17 +1,47 @@
-<mat-toolbar *ngIf="toolbar" color="primary" class="toolbar mb-5">
+<mat-toolbar *ngIf="toolbar" color="primary" class="toolbar">
+  <mat-toolbar-row>
     <a href="/">
       <img src="./assets/images/artizekalogo.png">
     </a>
-    <div *ngFor="let b of branches">
+
+    <div *ngFor="let b of branches" fxShow="true" fxHide.lt-md>
       <button mat-button [matMenuTriggerFor]="menu">{{b.name}} <mat-icon>keyboard_arrow_down</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
         <div *ngFor="let g of b.grades">
-      <button (click)="getbooks(g.id)" mat-menu-item>{{g.name}}</button>
-      </div>
-    </mat-menu>
+          <button  (click)="getbooks(g.id)" mat-menu-item>{{g.name}}</button>
+        </div>
+      </mat-menu>
     </div>
+    <span class="menu-spacer"></span>
+    <!-- <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button> -->
+    <button mat-icon-button [matMenuTriggerFor]="menu"  fxShow="true" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" class="customize">
+      <ng-template matMenuContent  >
+        <div *ngFor="let b of branches">
+          <mat-accordion>
+            <mat-expansion-panel hideToggle (click)="$event.stopPropagation();" >
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <mat-icon>arrow_drop_down</mat-icon> {{b.name}} 
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-divider></mat-divider>
+              <div *ngFor="let g of b.grades">
+                <button (click)="getbooks(g.id)" mat-menu-item>{{g.name}}</button>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </ng-template>
+    </mat-menu>
+    
+  </mat-toolbar-row>
+</mat-toolbar>
 
-  </mat-toolbar>
-  
-  <mat-spinner *ngIf="loading" class="center"></mat-spinner>
+
+<mat-spinner *ngIf="loading" class="center"></mat-spinner>

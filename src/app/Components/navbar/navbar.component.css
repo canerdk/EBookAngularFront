@@ -14,3 +14,20 @@
     overflow: hidden;
     top: 0;
   } */
+
+  .menu-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .sidenav {
+
+    background: none;
+  }
+
+  .menubutton {
+    margin-left: 10px;
+  }
+
+  ::ng-deep .customize .mat-menu-content {
+    padding: 0 !important;
+  }

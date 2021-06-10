@@ -11,6 +11,7 @@ import { ProviderService } from 'src/app/Services/provider.service';
 export class HomeComponent implements OnInit {
   books: any;
   loading = true;
+  p: number = 1;
 
   constructor(private service: ProviderService, private router: Router) { }
 

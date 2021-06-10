@@ -1,7 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProviderService } from 'src/app/Services/provider.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -33,5 +34,8 @@ export class NavbarComponent implements OnInit {
   getbooks(id:any){
     this.router.navigate(['/books', id]);
   }
+
+
+
 
 }
