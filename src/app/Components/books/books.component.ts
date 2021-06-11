@@ -32,7 +32,7 @@ export class BooksComponent implements OnInit {
   }
 
   getDocument(id: any) {
-    this.router.navigate(['/booksdetail', id]);
+    this.router.navigate(['/kitapdetay', id]);
   }
 
 }

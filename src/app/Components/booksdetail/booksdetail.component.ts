@@ -48,6 +48,7 @@ export class BooksdetailComponent implements OnInit {
   };  
   images: any = [];
   imageIndex = 0;
+  showImages = false;
 
   constructor(private route: ActivatedRoute, private service: ProviderService, private sanitizer: DomSanitizer) {    
     pdfDefaultOptions.assetsFolder = 'bleeding-edge';
@@ -64,6 +65,7 @@ export class BooksdetailComponent implements OnInit {
   getPdfImages(docName: string) {
     this.service.getPdfImagesWithDocName(docName).then((data) => {
       this.images = data;
+      this.showImages = true;
     });
   }
 

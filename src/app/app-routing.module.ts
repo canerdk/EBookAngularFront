@@ -5,10 +5,10 @@ import { BooksdetailComponent } from './Components/booksdetail/booksdetail.compo
 import { HomeComponent } from './Components/home/home.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent },
-  {path: 'books', component: BooksComponent },
-  {path: 'books/:id', component: BooksComponent },
-  {path: 'booksdetail/:id', component: BooksdetailComponent }
+  {path: '', component: HomeComponent, pathMatch: 'full'},  
+  {path: 'kitaplar', component: BooksComponent },
+  {path: 'kitaplar/:id', component: BooksComponent },
+  {path: 'kitapdetay/:id', component: BooksdetailComponent }
 ];
 
 @NgModule({

@@ -45,6 +45,6 @@
   
 ></pdf-viewer> -->
 
-<div class="container mt-2 viewer" *ngIf="!loading">
+<div class="container mt-2 viewer" *ngIf="showImages">
   <ngx-image-viewer [src]="images" [(index)]="imageIndex" [config]="config"></ngx-image-viewer>
 </div>

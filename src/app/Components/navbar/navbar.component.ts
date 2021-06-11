@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
   }
 
   getbooks(id:any){
-    this.router.navigate(['/books', id]);
+    this.router.navigate(['/kitaplar', id]);
   }
 
 
