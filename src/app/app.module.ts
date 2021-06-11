@@ -34,7 +34,7 @@ import { ImageViewerModule } from 'ngx-image-viewer';
     FooterComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'ebookfront' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
