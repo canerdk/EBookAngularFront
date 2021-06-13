@@ -13,11 +13,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { BooksComponent } from './Components/books/books.component';
 import { BooksdetailComponent } from './Components/booksdetail/booksdetail.component';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { FooterComponent } from './Components/footer/footer.component';
 import { ImageViewerModule } from 'ngx-image-viewer';
 
@@ -40,11 +38,9 @@ import { ImageViewerModule } from 'ngx-image-viewer';
     MaterialModule,
     HttpClientModule,
     NgbModule,
-    PdfViewerModule,
     FormsModule,
     NgxPaginationModule,
     FlexLayoutModule,
-    NgxExtendedPdfViewerModule,
     ImageViewerModule.forRoot()
   ],
   providers: [ProviderService],

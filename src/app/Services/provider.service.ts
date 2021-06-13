@@ -51,4 +51,12 @@ export class ProviderService {
     });
     return this.http.get(this.BaseURL + 'Documents/getimages?docName=' + docName, {headers}).toPromise(); 
   }
+
+  public updateBook(book: any) {
+    const headers = new HttpHeaders({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    });
+    return this.http.put(this.BaseURL + 'Books/' + book.id, book, {headers}).toPromise();
+  }
 }

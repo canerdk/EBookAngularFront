@@ -1,10 +1,8 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Component, ElementRef, OnInit, SecurityContext, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, SecurityContext, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { Subject, throwError } from 'rxjs';
 import { ProviderService } from 'src/app/Services/provider.service';
-import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
 
 
 @Component({
@@ -50,8 +48,9 @@ export class BooksdetailComponent implements OnInit {
   imageIndex = 0;
   showImages = false;
 
+
   constructor(private route: ActivatedRoute, private service: ProviderService, private sanitizer: DomSanitizer) {    
-    pdfDefaultOptions.assetsFolder = 'bleeding-edge';
+    
   }
 
   ngOnInit(): void {
@@ -59,8 +58,11 @@ export class BooksdetailComponent implements OnInit {
       this.id = data.get('id');
       this.getDocument(this.id);
     });    
-    
+
   }
+
+  
+
 
   getPdfImages(docName: string) {
     this.service.getPdfImagesWithDocName(docName).then((data) => {

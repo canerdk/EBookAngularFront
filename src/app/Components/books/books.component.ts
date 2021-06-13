@@ -33,6 +33,9 @@ export class BooksComponent implements OnInit {
 
   getDocument(id: any) {
     this.router.navigate(['/kitapdetay', id]);
+    var book = this.books.find((item: { id: any; }) => item.id === id);
+    book.hitRate += 1;
+    this.service.updateBook(book);
   }
 
 }
