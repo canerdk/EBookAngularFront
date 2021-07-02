@@ -20,6 +20,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { ImageViewerModule } from 'ngx-image-viewer';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ContactComponent } from './Components/contact/contact.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -46,7 +47,12 @@ import { ContactComponent } from './Components/contact/contact.component';
     FlexLayoutModule,
     ImageViewerModule.forRoot(),
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      positionClass: 'toast-bottom-center',
+      preventDuplicates: true
+    })
   ],
   providers: [ProviderService],
   bootstrap: [AppComponent]
