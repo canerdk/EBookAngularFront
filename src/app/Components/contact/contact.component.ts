@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ProviderService } from 'src/app/Services/provider.service';
 
 @Component({
   selector: 'app-contact',
@@ -15,14 +16,16 @@ export class ContactComponent implements OnInit {
     message: new FormControl('', Validators.required)
   });
 
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(private _snackBar: MatSnackBar, private service: ProviderService) { }
 
   ngOnInit(): void {
   }
 
   sendMessage(){
     if(this.msg.valid){
-      console.log(Object.assign({}, this.msg.value))
+      this.service.postContact(Object.assign({}, this.msg.value)).then((data) => {
+        console.log(data);
+      })
     }
     else{
       this.openSnackBar();      
