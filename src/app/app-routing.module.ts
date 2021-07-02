@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BooksComponent } from './Components/books/books.component';
 import { BooksdetailComponent } from './Components/booksdetail/booksdetail.component';
+import { ContactComponent } from './Components/contact/contact.component';
 import { HomeComponent } from './Components/home/home.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},  
   {path: 'kitaplar', component: BooksComponent },
   {path: 'kitaplar/:id', component: BooksComponent },
-  {path: 'kitapdetay/:id', component: BooksdetailComponent }
+  {path: 'kitapdetay/:id', component: BooksdetailComponent },
+  {path: 'iletisim', component: ContactComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,29 @@
+<div class="container contact-form">
+    <div class="contact-image">
+        <img src="./assets/images/contactlogo.png" alt="iletisim"/>
+    </div>
+    <form [formGroup]="msg">
+        <h3>Bizimle İletişime Geçin</h3>
+       <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" name="txtName" formControlName="name" class="form-control" placeholder="Adınız" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="txtEmail" formControlName="email" class="form-control" placeholder="Email adresiniz" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="txtPhone" formControlName="phone"  class="form-control" placeholder="Telefon numaranız" value="" />
+                </div>
+                <div class="form-group">
+                    <button mat-raised-button color="primary" (click)="sendMessage()">Mesaj Gönder</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <textarea name="txtMsg" formControlName="message" class="form-control" placeholder="Mesajınız" style="width: 100%; height: 150px;"></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

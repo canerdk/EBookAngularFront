@@ -1,4 +1,4 @@
-<mat-toolbar *ngIf="toolbar" color="primary" class="toolbar">
+<mat-toolbar *ngIf="toolbar" class="toolbar">
   <mat-toolbar-row>
     <a href="/">
       <img src="./assets/images/artizekalogo.png">
@@ -13,10 +13,8 @@
         </div>
       </mat-menu>
     </div>
+    <!-- <button mat-button fxHide.lt-md [routerLink]="['/iletisim']" routerLinkActive="router-link-active" >İletişim</button> -->
     <span class="menu-spacer"></span>
-    <!-- <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
-      <mat-icon>menu</mat-icon>
-    </button> -->
     <button mat-icon-button [matMenuTriggerFor]="menu"  fxShow="true" fxHide.gt-sm>
       <mat-icon>menu</mat-icon>
     </button>
@@ -34,6 +32,7 @@
               <div *ngFor="let g of b.grades">
                 <button (click)="getbooks(g.id)" mat-menu-item>{{g.name}}</button>
               </div>
+
             </mat-expansion-panel>
           </mat-accordion>
         </div>

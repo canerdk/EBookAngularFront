@@ -13,11 +13,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { BooksComponent } from './Components/books/books.component';
 import { BooksdetailComponent } from './Components/booksdetail/booksdetail.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FooterComponent } from './Components/footer/footer.component';
 import { ImageViewerModule } from 'ngx-image-viewer';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ContactComponent } from './Components/contact/contact.component';
 
 
 
@@ -29,7 +31,8 @@ import { ImageViewerModule } from 'ngx-image-viewer';
     NavbarComponent,
     BooksComponent,
     BooksdetailComponent,
-    FooterComponent
+    FooterComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ebookfront' }),
@@ -41,7 +44,9 @@ import { ImageViewerModule } from 'ngx-image-viewer';
     FormsModule,
     NgxPaginationModule,
     FlexLayoutModule,
-    ImageViewerModule.forRoot()
+    ImageViewerModule.forRoot(),
+    Ng2SearchPipeModule,
+    ReactiveFormsModule
   ],
   providers: [ProviderService],
   bootstrap: [AppComponent]
