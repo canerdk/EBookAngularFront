@@ -2,18 +2,22 @@
     <div class="contact-image">
         <img src="./assets/images/contactlogo.png" alt="iletisim"/>
     </div>
-    <form [formGroup]="msg">
-        <h3>Bizimle İletişime Geçin</h3>
+    <form [formGroup]="contactForm">
+        <h3>Bize ulaşın: (312) 286 96 69</h3>
        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <input type="text" name="txtName" formControlName="name" class="form-control" placeholder="Adınız" value="" />
+                    <span class="text-danger"
+                                *ngIf="(contactFormControl.name.touched || submitted) && contactFormControl.name.errors?.required">
+                                Lütfen isim giriniz.
+                            </span>
                 </div>
                 <div class="form-group">
                     <input type="text" name="txtEmail" formControlName="email" class="form-control" placeholder="Email adresiniz" value="" />
                 </div>
                 <div class="form-group">
-                    <input type="text" name="txtPhone" formControlName="phone"  class="form-control" placeholder="Telefon numaranız" value="" />
+                    <input type="tel" name="txtPhone" formControlName="phone"  class="form-control" placeholder="Telefon numaranız" value="" />
                 </div>
                 <div class="form-group">
                     <button mat-raised-button color="primary" (click)="sendMessage()">Mesaj Gönder</button>
