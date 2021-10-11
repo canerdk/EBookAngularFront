@@ -59,54 +59,16 @@ export class BooksdetailComponent implements OnInit {
       this.getDocument(this.id);
     });    
 
+    
   }
 
-  
-
-
-  getPdfImages(docName: string) {
-    this.service.getPdfImagesWithDocName(docName).then((data) => {
-      this.images = data;
-      this.showImages = true;
-    });
-  }
-
-  afterLoadComplete(pdfData: any) {
-    this.totalPages = pdfData.numPages;
-    this.isLoaded = true;
-  }
-
-  nextPage() {
-    this.imageIndex++;
-  }
-
-  prevPage() {    
-    if(this.imageIndex != 0) {
-      this.imageIndex--;
-    }
-  }
-
-  getPosition(event: any) {
-    console.log(event);
-    if(event.layerY >= 100 && event.layerY <= 600) {
-      if(event.layerX > 500) {
-        this.imageIndex++;
-      } else {
-        if(this.imageIndex != 0) {
-          this.imageIndex--;
-        }
-      }
-    }
-  }
 
 
   getDocument(bookId: any) {
     this.service.getDocumentWithBookId(bookId).then((data) => {
       this.document = data;
-      this.getPdfImages(this.document[0].url);
       this.loading = false;
-      this.url = '/assets/documents/' + this.document[0].url;
-
+      this.url = this.sanitizer.bypassSecurityTrustHtml(this.document[0].url)
     }).catch((err: HttpErrorResponse) => {
       console.log(err);
     });
